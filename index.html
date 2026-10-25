@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="面向四口之家的贵州风味七日合餐菜谱，结合 DASH、哈佛健康餐盘和药食同源设计。"
+    />
+    <title>黔味合餐 · 一家四口四周菜谱</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="返回顶部">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M4 4h16v4h-2v3.5A6 6 0 0 1 12 18a6 6 0 0 1-6-6.5V8H4V4Zm4 4h8V6H8v2Zm2 3.5A2 2 0 0 0 12 13a2 2 0 0 0 2-2.5h-4Z" />
+              <path d="M10 18v3h4v-3" fill="none" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+          </span>
+          <span>
+            <strong>黔味合餐</strong>
+            <small>一家四口 · 四周三餐</small>
+          </span>
+        </a>
+
+        <div class="topbar-actions">
+          <button class="icon-button" id="printButton" type="button" aria-label="打印菜谱">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9V3h12v6" />
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+              <path d="M6 14h12v7H6z" />
+            </svg>
+          </button>
+          <button class="icon-button" id="scrollTopButton" type="button" aria-label="回到顶部">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 19V5" />
+              <path d="m6 11 6-6 6 6" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="overview" aria-labelledby="overviewTitle">
+          <div class="section-heading overview-heading">
+            <div>
+              <p class="eyebrow">世界顶尖临床营养师 · 家庭合餐方案</p>
+              <h1 id="overviewTitle">一桌贵州味，照顾四种身体</h1>
+              <p class="lede">
+                不做四套饭。所有食材用量按四人份安排，以同一锅菜为底，用低GI主食、低盐低脂、高蛋白和温补食材做分餐调整，保留酸辣鲜香，不放重油重腌。
+              </p>
+            </div>
+            <div class="date-chip" aria-label="示例周次">
+              <span>示例月</span>
+              <strong>10.26 - 11.22</strong>
+            </div>
+          </div>
+
+          <div class="family-grid" id="familyGrid"></div>
+
+          <div class="principle-strip" aria-label="核心设计原则">
+            <div class="principle-item">
+              <span class="principle-index">01</span>
+              <div>
+                <strong>同锅同桌</strong>
+                <p>少油少盐、不额外加糖；用番茄、菌菇、姜、香醋与少量糟辣椒提味。</p>
+              </div>
+            </div>
+            <div class="principle-item">
+              <span class="principle-index">02</span>
+              <div>
+                <strong>哈佛餐盘</strong>
+                <p>每餐 1/2 蔬菜菌菇，1/4 优质蛋白，1/4 低GI主食。</p>
+              </div>
+            </div>
+            <div class="principle-item">
+              <span class="principle-index">03</span>
+              <div>
+                <strong>DASH 控压</strong>
+                <p>全日盐目标 &lt;5g，高钾蔬菜优先，少精制碳水与动物脂肪。</p>
+              </div>
+            </div>
+            <div class="principle-item">
+              <span class="principle-index">04</span>
+              <div>
+                <strong>药食同源</strong>
+                <p>茯苓、山药、葛根、生姜、大枣、枸杞、薏苡仁、百合，按体质少量使用。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="day-nav" aria-label="月份与日期">
+          <div class="week-tabs" id="weekTabs"></div>
+          <div class="day-tabs" id="dayTabs"></div>
+        </nav>
+
+        <section class="menu-section" aria-labelledby="menuTitle">
+          <div class="section-heading menu-heading">
+            <div>
+              <p class="eyebrow">四周菜单</p>
+              <h2 id="menuTitle">同锅合餐，分餐调整</h2>
+            </div>
+            <div class="toolbar" role="search" aria-label="菜谱筛选">
+              <label class="search-field">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-4-4" />
+                </svg>
+                <input id="searchInput" type="search" placeholder="搜索菜名、功效或食材" autocomplete="off" />
+              </label>
+              <div class="segmented" id="mealFilter" aria-label="餐次筛选"></div>
+            </div>
+          </div>
+
+          <div class="member-filter-row" id="memberFilter" aria-label="家庭成员筛选"></div>
+          <div class="day-menu" id="dayMenu"></div>
+        </section>
+
+        <section class="herb-section" id="herbSection" aria-labelledby="herbTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">药食同源与采购</p>
+              <h2 id="herbTitle">本周常备食材</h2>
+            </div>
+          </div>
+
+          <div class="herb-grid" id="herbGrid"></div>
+
+          <div class="shopping-band">
+            <div class="shopping-title">
+              <h3>采购建议到克数</h3>
+              <p>先看当前周四人份用量，再看整月备货；冷藏蔬菜 2-3 天补一次，药食同源食材少量即可。</p>
+            </div>
+            <div class="shopping-columns" id="shoppingList"></div>
+          </div>
+        </section>
+
+        <section class="note-band">
+          <p>
+            本页面为家庭日常配餐参考，不替代医生、营养师或药师的个体化诊疗。慢性病用药、血糖血压监测及特殊禁忌，请按门诊医嘱执行。
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="dishModal" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalDishName">
+        <button class="modal-close" id="modalClose" type="button" aria-label="关闭">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
